@@ -19,10 +19,10 @@ define :ec2_tools do
   end
 
   execute "move ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
-    cwd "/tmp/#{filename}-*"
+    cwd Dir["/tmp/#{filename}-*"].first
     command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && mv -f * #{node["chef_ec2_cli_tools"]["install_target"]}"
 
-    only_if { Dir.exists? "/tmp/#{filename}-*" }
+    not_if { Dir["/tmp/#{filename}-*"].first.nil? }
   end
 
   template "/etc/profile.d/ec2_tools.sh" do
