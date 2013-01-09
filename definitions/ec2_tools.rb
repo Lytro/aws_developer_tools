@@ -14,9 +14,9 @@ define :ec2_tools do
   
   execute "extract ec2 tools" do
     cwd "/tmp"
-    command "unzip -od #{node["chef_ec2_cli_tools"]["install_root"]} ./#{filename}"
+    command "unzip -o ./#{filename} && cd #{filename}-* && mv -f * #{node["chef_ec2_cli_tools"]["install_target"]} && cd .. && rmdir #{filename}-*"
   end
-  
+
   template "/etc/profile.d/ec2_tools.sh" do
     source "ec2_tools.sh.erb"
     owner "root"
