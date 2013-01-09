@@ -19,10 +19,9 @@ define :ec2_tools do
   end
 
   execute "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
-    cwd Dir["/tmp/#{filename}-*"].first
-    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && cp -r * #{node["chef_ec2_cli_tools"]["install_target"]}"
+    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && cp -r #{Dir["/tmp/#{filename}-*"].first}/* #{node["chef_ec2_cli_tools"]["install_target"]}"
 
-    not_if { Dir["/tmp/#{filename}-*"].first.nil? }
+    not_if { Dir["/tmp/#{filename}-*"].empty? }
   end
 
   template "/etc/profile.d/ec2_tools.sh" do
