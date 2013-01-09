@@ -15,7 +15,14 @@ define :ec2_tools do
   
   execute "extract ec2 tools" do
     cwd "/tmp"
-    command "unzip -o ./#{filename + extension} && cd #{filename}-* && mv -f * #{node["chef_ec2_cli_tools"]["install_target"]} && cd .. && rmdir #{filename}-*"
+    command "unzip -o ./#{filename + extension}"
+  end
+
+  execute "move ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
+    cwd "/tmp/#{filename}-*"
+    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && mv -f * #{node["chef_ec2_cli_tools"]["install_target"]}"
+
+    only_if { Dir.exists? "/tmp/#{filename}-*" }
   end
 
   template "/etc/profile.d/ec2_tools.sh" do
