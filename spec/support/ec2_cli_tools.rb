@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-shared_examples_for "ec2 cli tools" do
+shared_examples_for "ec2 cli tools" do |ami_or_api|
   it "installs unzip" do
     chef_run.should install_package 'unzip'
   end
@@ -11,5 +11,9 @@ shared_examples_for "ec2 cli tools" do
     chef_run.should create_file_with_content '/etc/profile.d/ec2_tools.sh',
                                              %Q{export EC2_HOME=#{install_target}\nexport PATH=$PATH:#{install_target}/bin\n}
     chef_run.template('/etc/profile.d/ec2_tools.sh').should be_owned_by('root', 'root')
+  end
+
+  it "downloads the ec2 tools" do
+    chef_run.should create_remote_file "/tmp/ec2-#{ami_or_api}-tools.zip"
   end
 end
