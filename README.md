@@ -8,6 +8,8 @@ Description
 -----------
 Setup EC2 CLI Tools for easier EC2 server management. The default recipe sets up both the AMI tools and the API tools.
 
+API Tools requires java; by default, OpenJDK is installed. See the [java cookbook](https://github.com/opscode-cookbooks/java) for information on how to install Oracle's JDK.
+
 Requirements
 ------------
 Ruby 1.9+
@@ -17,6 +19,7 @@ cookbook 'java'
 
 Attributes
 ----------
+* `default['chef_ec2_cli_tools']['install_java?'] = true` - set to `false` you do not want to install java
 
 Usage
 -----
