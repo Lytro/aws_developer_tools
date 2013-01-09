@@ -13,7 +13,7 @@ define :ec2_tools do
   bash "extract ec2 tools" do
     cwd "/tmp"
     code <<-EOH
-      tar -xf ./#{filename} -C #{node["chef_ec2_cli_tools"]["install_root"]} --strip 1
+      tar -xf #{filename} -C #{node["chef_ec2_cli_tools"]["install_root"]} --strip 1
     EOH
   end
   
