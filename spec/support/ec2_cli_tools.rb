@@ -5,11 +5,11 @@ shared_examples_for "ec2 cli tools" do |ami_or_api|
     chef_run.should install_package 'unzip'
   end
 
-  it "sets the EC2_HOME environment variable" do
-    install_target = chef_run.node['chef_ec2_cli_tools']['install_target']
-
+  it "sets the EC2_HOME environment variable and adds the tools to the path" do
     chef_run.should create_file_with_content '/etc/profile.d/ec2_tools.sh',
-                                             %Q{export EC2_HOME=#{install_target}\nexport PATH=$PATH:#{install_target}/bin\n}
+                                             "export EC2_HOME=#{@runner.node['chef_ec2_cli_tools']['install_target']}"
+    chef_run.should create_file_with_content '/etc/profile.d/ec2_tools.sh',
+                                             "export PATH=$PATH:#{@runner.node['chef_ec2_cli_tools']['install_target']}/bin"
     chef_run.template('/etc/profile.d/ec2_tools.sh').should be_owned_by('root', 'root')
   end
 
