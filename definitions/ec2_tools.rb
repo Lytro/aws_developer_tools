@@ -18,9 +18,9 @@ define :ec2_tools do
     command "unzip -o ./#{filename + extension}"
   end
 
-  execute "move ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
+  execute "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
     cwd Dir["/tmp/#{filename}-*"].first
-    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && mv -f * #{node["chef_ec2_cli_tools"]["install_target"]}"
+    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && cp -r * #{node["chef_ec2_cli_tools"]["install_target"]}"
 
     not_if { Dir["/tmp/#{filename}-*"].first.nil? }
   end
