@@ -6,13 +6,15 @@
 define :ec2_tools do
   filename = "ec2-#{params[:name]}-tools.zip"
 
+  package "unzip"
+  
   remote_file "/tmp/#{filename}" do
     source "http://s3.amazonaws.com/ec2-downloads/#{filename}"
   end
   
   execute "extract ec2 tools" do
     cwd "/tmp"
-    command "tar -xf #{filename} -C #{node["chef_ec2_cli_tools"]["install_target"]} --strip 1"
+    command "unzip -od #{node["chef_ec2_cli_tools"]["install_root"]} ./#{filename}"
   end
   
   template "/etc/profile.d/ec2_tools.sh" do
