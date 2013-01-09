@@ -20,6 +20,10 @@ cookbook 'java'
 Attributes
 ----------
 * `default['chef_ec2_cli_tools']['install_java?'] = true` - set to `false` you do not want to install java
+* `default['chef_ec2_cli_tools']['aws_access_key'] = "Your Access Key"` - you must set this if installing the API tools.
+* `default['chef_ec2_cli_tools']['aws_secret_key'] = "Your Secret Key"` - you must set this if installing the API tools.
+
+See [Setting Attributes (Examples)](http://wiki.opscode.com/pages/viewpage.action?pageId=8257848).
 
 Usage
 -----
