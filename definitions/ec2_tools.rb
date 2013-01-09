@@ -10,11 +10,9 @@ define :ec2_tools do
     source "http://s3.amazonaws.com/ec2-downloads/#{filename}"
   end
   
-  bash "extract ec2 tools" do
+  execute "extract ec2 tools" do
     cwd "/tmp"
-    code <<-EOH
-      tar -xf #{filename} -C #{node["chef_ec2_cli_tools"]["install_target"]} --strip 1
-    EOH
+    command "tar -xf #{filename} -C #{node["chef_ec2_cli_tools"]["install_target"]} --strip 1"
   end
   
   template "/etc/profile.d/ec2_tools.sh" do
