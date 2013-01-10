@@ -1,3 +1,4 @@
+name             "chef_ec2_cli_tools"
 maintainer       "Anuj Biyani"
 maintainer_email "anujbiyani01@gmail.com"
 license          "Apache 2.0"
