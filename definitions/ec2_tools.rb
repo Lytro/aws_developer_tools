@@ -4,6 +4,8 @@
 #
 
 define :ec2_tools do
+  require 'fileutils'
+
   filename = "ec2-#{params[:name]}-tools"
   extension = ".zip"
 
@@ -18,10 +20,16 @@ define :ec2_tools do
     command "unzip -o ./#{filename + extension}"
   end
 
-  execute "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
-    command "mkdir -p #{node["chef_ec2_cli_tools"]["install_target"]} && cp -r #{Dir["/tmp/#{filename}-*"].first}/* #{node["chef_ec2_cli_tools"]["install_target"]}"
+  ruby_block "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
+    block do
+      unless Dir["/tmp/#{filename}-*"].empty?
+        FileUtils.mkdir_p node["chef_ec2_cli_tools"]["install_target"]
 
-    not_if { Dir["/tmp/#{filename}-*"].empty? }
+        FileUtils.cd(Dir["/tmp/#{filename}-*"].first) do
+          FileUtils.cp_r(".", node["chef_ec2_cli_tools"]["install_target"])
+        end
+      end
+    end
   end
 
   template "/etc/profile.d/ec2_tools.sh" do
