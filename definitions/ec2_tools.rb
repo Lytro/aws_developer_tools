@@ -22,15 +22,19 @@ define :ec2_tools do
 
   ruby_block "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
     block do
-      Chef::Log.info "Checking for tools in #{Dir["/tmp/#{filename}-*"]}"
+      filename = "ec2-#{params[:name]}-tools" # Chef ruby_blocks do not retain variables assigned outside of the block
+      source = Dir["/tmp/#{filename}-*"]
+      target = node["chef_ec2_cli_tools"]["install_target"]
 
-      unless Dir["/tmp/#{filename}-*"].empty?
-        FileUtils.mkdir_p node["chef_ec2_cli_tools"]["install_target"]
+      Chef::Log.info "Checking for tools in #{source}"
 
-        FileUtils.cd(Dir["/tmp/#{filename}-*"].first) do
+      unless source.empty?
+        FileUtils.mkdir_p target
+
+        FileUtils.cd(source.first) do
           Chef::Log.info "Attempting to copy files from #{FileUtils.pwd}"
 
-          Chef::Log.info FileUtils.cp_r(".", node["chef_ec2_cli_tools"]["install_target"], verbose: true)
+          FileUtils.cp_r(".", target)
         end
       end
     end
