@@ -39,3 +39,6 @@ Contributing
   * Make sure you pull in dependent cookbooks with `bundle exec librarian-chef install` (see [Librarian](https://github.com/applicationsonline/librarian))
   * Run specs with `bundle exec rspec` (see [ChefSpec](https://github.com/acrmp/chefspec))
 4. Submit a pull request
+
+
+Written by [Anuj Biyani](https://github.com/anujbiyani) for [Lytro](https://github.com/lytro)
