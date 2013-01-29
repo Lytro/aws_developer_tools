@@ -1,6 +1,6 @@
 name             "chef_ec2_cli_tools"
 maintainer       "Lytro"
-maintainer_email "webops@lytro.com"
+maintainer_email "cookbooks@lytro.com"
 license          "Apache 2.0"
 description      "Installs/Configures chef_ec2_cli_tools"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
