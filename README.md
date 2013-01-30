@@ -31,14 +31,5 @@ Usage
 * Add `chef_ec2_cli_tools::ami` for only the AMI tools.
 * Add `chef_ec2_cli_tools::api` for only the API tools.
 
-Contributing
-------------
-1. Fork the repo
-2. Create a topic branch
-3. Make your changes (and write specs!)
-  * Make sure you pull in dependent cookbooks with `bundle exec librarian-chef install` (see [Librarian](https://github.com/applicationsonline/librarian))
-  * Run specs with `bundle exec rspec` (see [ChefSpec](https://github.com/acrmp/chefspec))
-4. Submit a pull request
-
 
 Written by [Anuj Biyani](https://github.com/anujbiyani) for [Lytro](https://github.com/lytro)
