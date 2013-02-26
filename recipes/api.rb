@@ -4,7 +4,6 @@
 #
 
 ec2_tools 'api' do
-  filename 'ec2-api-tools'
   source 'http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip'
 end
 
