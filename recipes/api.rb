@@ -3,16 +3,19 @@
 # Recipe:: api
 #
 
-ec2_tools "api"
-
-include_recipe "java" do
-  only_if { node["chef_ec2_cli_tools"]["install_java?"] }
+ec2_tools 'api' do
+  filename 'ec2-api-tools'
+  source 'http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip'
 end
 
-template "/etc/profile.d/aws_keys.sh" do
-  source "aws_keys.sh.erb"
-  owner "root"
-  group "root"
+include_recipe 'java' do
+  only_if { node['chef_ec2_cli_tools']['install_java?'] }
+end
+
+template '/etc/profile.d/aws_keys.sh' do
+  source 'aws_keys.sh.erb'
+  owner 'root'
+  group 'root'
 
   mode 0755
 end
