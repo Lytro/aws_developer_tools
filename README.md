@@ -13,8 +13,11 @@ cookbook 'java'
 
 ## Attributes
 * `default['chef_ec2_cli_tools']['install_java?'] = true` - set to `false` you do not want to install java
-* `default['chef_ec2_cli_tools']['aws_access_key'] = "Your Access Key"` - you must set this if installing the API tools.
-* `default['chef_ec2_cli_tools']['aws_secret_key'] = "Your Secret Key"` - you must set this if installing the API tools.
+* `default['chef_ec2_cli_tools']['aws_access_key'] = 'Your Access Key'` - you must set this if installing the API tools.
+* `default['chef_ec2_cli_tools']['aws_secret_key'] = 'Your Secret Key'` - you must set this if installing the API tools.
+* `default['chef_ec2_cli_tools']['api_source'] = 'http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip'` - set to whatever URL you want
+* `default['chef_ec2_cli_tools']['ami_source'] = 'http://s3.amazonaws.com/ec2-downloads/ec2-ami-tools.zip'` - set to whatever URL you want
+* `default['chef_ec2_cli_tools']['as_source'] = 'http://ec2-downloads.s3.amazonaws.com/AutoScaling-2011-01-01.zip'` - set to whatever URL you want
 
 See [Setting Attributes (Examples)](http://wiki.opscode.com/pages/viewpage.action?pageId=8257848).
 

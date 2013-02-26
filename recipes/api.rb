@@ -4,7 +4,7 @@
 #
 
 ec2_tools 'api' do
-  source 'http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip'
+  source node['chef_ec2_cli_tools']['api_source']
 end
 
 include_recipe 'java' do

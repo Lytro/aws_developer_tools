@@ -1,5 +1,5 @@
 ec2_tools 'as' do
-  source 'http://ec2-downloads.s3.amazonaws.com/AutoScaling-2011-01-01.zip'
+  source node['chef_ec2_cli_tools']['as_source']
 end
 
 include_recipe 'java' do
