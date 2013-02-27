@@ -1,8 +1,3 @@
-#
-# Cookbook Name:: chef_ec2_cli_tools
-# Recipe:: api
-#
-
 ec2_tools 'api' do
   source node['chef_ec2_cli_tools']['api_source']
 end

@@ -1,8 +1,3 @@
-#
-# Cookbook Name:: chef_ec2_cli_tools
-# Definition:: ec2_tools
-#
-
 define :ec2_tools, :extension => '.zip' do
   require 'fileutils'
 
