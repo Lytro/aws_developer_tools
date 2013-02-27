@@ -1,2 +1,0 @@
-export AWS_CREDENTIAL_FILE=$EC2_HOME/aws_credentials
-export AWS_AUTO_SCALING_HOME=$EC2_HOME
