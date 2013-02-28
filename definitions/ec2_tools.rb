@@ -1,8 +1,3 @@
-#
-# Cookbook Name:: chef_ec2_cli_tools
-# Definition:: ec2_tools
-#
-
 define :ec2_tools, :extension => '.zip' do
   require 'fileutils'
 
@@ -12,25 +7,27 @@ define :ec2_tools, :extension => '.zip' do
     source params[:source]
   end
   
-  execute 'extract ec2 tools' do
+  execute 'cleanup old installs and extract ec2 tools' do
     cwd '/tmp'
-    command "unzip -o ./#{params[:name] + params[:extension]}"
+    command "rm -rf #{params[:name]} && mkdir #{params[:name]} && mv #{params[:name] + params[:extension]} #{params[:name]}/ && cd #{params[:name]} && unzip -o ./#{params[:name] + params[:extension]}"
   end
 
   ruby_block "copy ec2 tools to #{node['chef_ec2_cli_tools']['install_target']}" do
     block do
-      source = Dir["/tmp/#{params[:name]}"]
-      target = node['chef_ec2_cli_tools']['install_target']
+      FileUtils.cd("/tmp/#{params[:name]}") do
+        source = Dir['*'].detect { |file| File.directory? file }
+        target = node['chef_ec2_cli_tools']['install_target']
 
-      Chef::Log.info "Checking for tools in #{source}"
+        Chef::Log.info "Checking for tools in #{source}"
 
-      unless source.empty?
-        FileUtils.mkdir_p target
+        if source
+          FileUtils.mkdir_p target
 
-        FileUtils.cd(source.first) do
-          Chef::Log.info "Attempting to copy files from #{FileUtils.pwd}"
+          FileUtils.cd(source) do
+            Chef::Log.info "Attempting to copy files from #{FileUtils.pwd}"
 
-          FileUtils.cp_r('.', target)
+            FileUtils.cp_r('.', target)
+          end
         end
       end
     end

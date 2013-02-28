@@ -11,4 +11,8 @@ describe 'chef_ec2_cli_tools::as' do
     expect(chef_run).to create_file_with_content '/etc/profile.d/aws_as.sh',
         %Q{export AWS_CREDENTIAL_FILE=#{runner.node['chef_ec2_cli_tools']['install_target']}/aws_credentials\nexport AWS_AUTO_SCALING_HOME=#{runner.node['chef_ec2_cli_tools']['install_target']}\n}
   end
+
+  it 'installs java' do
+    expect(chef_run).to include_recipe 'java'
+  end
 end
