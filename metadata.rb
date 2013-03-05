@@ -10,7 +10,5 @@ depends 'java', '>= 1.8.0'
 depends 'chef_ruby', '>= 2.2.0'
 
 recipe 'aws_developer_tools', 'runs all of the recipes in this cookbook'
-recipe 'aws_developer_tools::ami', 'only Amazon AMI tools'
-recipe 'aws_developer_tools::api', 'only Amazon API tools.'
 
 replaces 'chef_ec2_cli_tools'

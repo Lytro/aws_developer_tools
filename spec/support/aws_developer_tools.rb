@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 shared_examples_for 'aws developer tools' do |tool_name|
   it 'installs unzip' do
     expect(chef_run).to install_package 'unzip'
