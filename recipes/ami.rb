@@ -1,3 +1,3 @@
-ec2_tools 'ami' do
-  source node['chef_ec2_cli_tools']['ami_source']
+aws_tools 'ami' do
+  source node['aws_developer_tools']['ami_source']
 end

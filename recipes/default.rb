@@ -1,3 +1,3 @@
-include_recipe 'chef_ec2_cli_tools::ami'
-include_recipe 'chef_ec2_cli_tools::api'
-include_recipe 'chef_ec2_cli_tools::as'
+include_recipe 'aws_developer_tools::ami'
+include_recipe 'aws_developer_tools::api'
+include_recipe 'aws_developer_tools::as'

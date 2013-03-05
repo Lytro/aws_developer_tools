@@ -1,9 +1,9 @@
-ec2_tools 'api' do
-  source node['chef_ec2_cli_tools']['api_source']
+aws_tools 'api' do
+  source node['aws_developer_tools']['api_source']
 end
 
 include_recipe 'java' do
-  only_if { node['chef_ec2_cli_tools']['install_java?'] }
+  only_if { node['aws_developer_tools']['install_java?'] }
 end
 
 template '/etc/profile.d/aws_keys.sh' do
