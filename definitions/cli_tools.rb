@@ -1,4 +1,4 @@
-define :aws_tools, :extension => '.zip' do
+define :cli_tools, :extension => '.zip' do
   require 'fileutils'
 
   package 'unzip'
@@ -12,11 +12,11 @@ define :aws_tools, :extension => '.zip' do
     command "rm -rf #{params[:name]} && mkdir #{params[:name]} && mv #{params[:name] + params[:extension]} #{params[:name]}/ && cd #{params[:name]} && unzip -o ./#{params[:name] + params[:extension]}"
   end
 
-  ruby_block "copy aws tools to #{node['aws_developer_tools']['install_target']}" do
+  ruby_block "copy the tools to #{node['aws_developer_tools'][params[:name]]['install_target']}" do
     block do
       FileUtils.cd("/tmp/#{params[:name]}") do
         source = Dir['*'].detect { |file| File.directory? file }
-        target = node['aws_developer_tools']['install_target']
+        target = node['aws_developer_tools'][params[:name]]['install_target']
 
         Chef::Log.info "Checking for tools in #{source}"
 
@@ -33,12 +33,21 @@ define :aws_tools, :extension => '.zip' do
     end
   end
 
-  template '/etc/profile.d/aws_tools.sh' do
-    source 'aws_tools.sh.erb'
-    owner 'root'
-    group 'root'
-    mode 0755
+  if AwsDeveloperTools.type?(params[:name]) == :ec2
+    template '/etc/profile.d/ec2_tools.sh' do
+      mode 0755
+    end
+  else
+    template "#{node['aws_developer_tools'][params[:name]]['install_target']}/aws_credentials" do
+      mode 0444
+    end
 
-    not_if { File.exists? '/etc/profile.d/aws_tools.sh' }
+    template "/etc/profile.d/aws_#{params[:name]}.sh" do
+      mode 0755
+    end
+
+    template '/etc/profile.d/aws_tools.sh' do
+      mode 0755
+    end
   end
 end

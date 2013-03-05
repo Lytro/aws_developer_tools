@@ -1,5 +1,5 @@
-cli_tools 'auto_scaling' do
-  source node['aws_developer_tools']['auto_scaling']['source']
+cli_tools 'cloudwatch' do
+  source node['aws_developer_tools']['cloudwatch']['source']
 end
 
 include_recipe 'java' do
