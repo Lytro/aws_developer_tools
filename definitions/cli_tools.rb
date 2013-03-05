@@ -1,4 +1,4 @@
-define :aws_tools, :extension => '.zip' do
+define :cli_tools, :extension => '.zip' do
   require 'fileutils'
 
   package 'unzip'

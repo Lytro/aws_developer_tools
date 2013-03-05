@@ -3,7 +3,8 @@ require 'spec_helper'
 describe 'aws_developer_tools::api' do
   let(:chef_run) { runner.converge 'aws_developer_tools::api' }
 
-  it_behaves_like 'aws developer tools', 'api'
+  it_behaves_like 'cli tools', 'api'
+  it_behaves_like 'ec2 tools'
 
   it "installs java" do
     expect(chef_run).to include_recipe 'java'

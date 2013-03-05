@@ -1,4 +1,4 @@
-aws_tools 'auto_scaling' do
+cli_tools 'auto_scaling' do
   source node['aws_developer_tools']['auto_scaling']['source']
 end
 

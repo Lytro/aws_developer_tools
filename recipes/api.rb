@@ -1,4 +1,4 @@
-aws_tools 'api' do
+cli_tools 'api' do
   source node['aws_developer_tools']['api']['source']
 end
 

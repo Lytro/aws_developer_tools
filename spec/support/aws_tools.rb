@@ -1,4 +1,4 @@
-shared_examples_for 'it uses aws credentials' do |tool_name|
+shared_examples_for 'aws tools' do |tool_name|
   it 'sets up the aws credentials and auto scaling home dir' do
     expect(chef_run).to create_file_with_content '/usr/local/share/aws_tools/aws_credentials',
         %Q{AWSAccessKeyId=#{runner.node['aws_developer_tools']['aws_access_key']}\nAWSSecretKey=#{runner.node['aws_developer_tools']['aws_secret_key']}\n}

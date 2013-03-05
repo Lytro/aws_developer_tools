@@ -1,4 +1,4 @@
-aws_tools 'cloudwatch' do
+cli_tools 'cloudwatch' do
   source node['aws_developer_tools']['cloudwatch']['source']
 end
 
