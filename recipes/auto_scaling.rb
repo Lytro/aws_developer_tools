@@ -10,6 +10,6 @@ template "#{node['aws_developer_tools']['install_target']}/aws_credentials" do
   mode 0755
 end
 
-template '/etc/profile.d/aws_as.sh' do
+template '/etc/profile.d/aws_auto_scaling.sh' do
   mode 0755
 end
