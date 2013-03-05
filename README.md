@@ -6,11 +6,9 @@ Setup AWS Developer Tools for easier AWS server management. http://aws.amazon.co
 API and AutoScaling Tools require java; by default, OpenJDK is installed. See the [java cookbook](https://github.com/opscode-cookbooks/java) for information on how to install Oracle's JDK.
 
 ## Requirements
-Ruby 1.9+
-Tested on Ubuntu 10.04
-
-cookbook 'java'
-cookbook 'chef_ruby'
+* Ruby 1.9+
+* Java
+* Tested on Ubuntu 10.04
 
 ## Attributes
 * `default['aws_developer_tools']['install_java?'] = true` - set to `false` if you'd rather install java yourself
