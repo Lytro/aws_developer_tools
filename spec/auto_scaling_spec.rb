@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe 'aws_developer_tools::as' do
-  let(:chef_run) { runner.converge 'aws_developer_tools::as' }
+describe 'aws_developer_tools::auto_scaling' do
+  let(:chef_run) { runner.converge 'aws_developer_tools::auto_scaling' }
 
-  it_behaves_like 'aws developer tools', 'as'
+  it_behaves_like 'aws developer tools', 'auto_scaling'
 
   it 'sets up the aws credentials and auto scaling home dir' do
     expect(chef_run).to create_file_with_content '/usr/local/share/aws_tools/aws_credentials',

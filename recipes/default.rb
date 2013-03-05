@@ -1,3 +1,3 @@
 include_recipe 'aws_developer_tools::ami'
 include_recipe 'aws_developer_tools::api'
-include_recipe 'aws_developer_tools::as'
+include_recipe 'aws_developer_tools::auto_scaling'
