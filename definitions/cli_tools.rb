@@ -45,5 +45,9 @@ define :cli_tools, :extension => '.zip' do
     template "/etc/profile.d/aws_#{params[:name]}.sh" do
       mode 0755
     end
+
+    template '/etc/profile.d/aws_tools.sh' do
+      mode 0755
+    end
   end
 end

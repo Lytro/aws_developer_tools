@@ -16,4 +16,9 @@ shared_examples_for 'aws tools' do |tool_name|
   it 'installs java' do
     expect(chef_run).to include_recipe 'java'
   end
+
+  it 'adds the tools to the path' do
+    expect(chef_run).to create_file_with_content '/etc/profile.d/aws_tools.sh',
+        "export PATH=$PATH:#{runner.node['aws_developer_tools'][tool_name]['install_target']}/bin"
+  end
 end
