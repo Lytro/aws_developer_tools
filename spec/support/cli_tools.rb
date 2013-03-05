@@ -8,6 +8,6 @@ shared_examples_for 'cli tools' do |tool_name|
   end
 
   it 'extracts the tools' do
-    expect(chef_run).to execute_ruby_block "copy aws tools to #{runner.node['aws_developer_tools']['install_target']}"
+    expect(chef_run).to execute_ruby_block "copy the tools to #{runner.node['aws_developer_tools'][tool_name]['install_target']}"
   end
 end
