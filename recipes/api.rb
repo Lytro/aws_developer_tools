@@ -1,5 +1,5 @@
 aws_tools 'api' do
-  source node['aws_developer_tools']['api_source']
+  source node['aws_developer_tools']['api']['source']
 end
 
 include_recipe 'java' do

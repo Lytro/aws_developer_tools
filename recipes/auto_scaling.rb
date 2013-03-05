@@ -1,5 +1,5 @@
 aws_tools 'auto_scaling' do
-  source node['aws_developer_tools']['auto_scaling_source']
+  source node['aws_developer_tools']['auto_scaling']['source']
 end
 
 include_recipe 'java' do

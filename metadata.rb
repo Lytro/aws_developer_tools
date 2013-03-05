@@ -6,7 +6,8 @@ description      'Installs/Configures aws_developer_tools'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.0.0'
 
-depends 'java', '~> 1.8.0'
+depends 'java', '>= 1.8.0'
+depends 'chef_ruby', '>= 2.2.0'
 
 recipe 'aws_developer_tools', 'runs all of the recipes in this cookbook'
 recipe 'aws_developer_tools::ami', 'only Amazon AMI tools'

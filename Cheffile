@@ -4,3 +4,4 @@
 site 'http://community.opscode.com/api/v1'
 
 cookbook 'java'
+cookbook 'chef_ruby', git: 'git://github.com/Lytro/chef_ruby.git'
