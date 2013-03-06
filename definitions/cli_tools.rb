@@ -12,7 +12,7 @@ define :cli_tools, :extension => '.zip' do
     command "rm -rf #{params[:name]} && mkdir #{params[:name]} && mv #{params[:name] + params[:extension]} #{params[:name]}/ && cd #{params[:name]} && unzip -o ./#{params[:name] + params[:extension]}"
   end
 
-  ruby_block "copy the tools to #{node['aws_developer_tools'][params[:name]]['install_target']}" do
+  ruby_block 'copy the tools to the target directory' do
     block do
       FileUtils.cd("/tmp/#{params[:name]}") do
         source = Dir['*'].detect { |file| File.directory? file }
@@ -38,11 +38,11 @@ define :cli_tools, :extension => '.zip' do
       mode 0755
     end
   else
-    template "#{node['aws_developer_tools'][params[:name]]['install_target']}/aws_credentials" do
+    template "#{node['aws_developer_tools']['aws_tools_target']}/aws_credentials" do
       mode 0444
     end
 
-    template "/etc/profile.d/aws_#{params[:name]}.sh" do
+    template "/etc/profile.d/#{params[:name]}.sh" do
       mode 0755
     end
 
