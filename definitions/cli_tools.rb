@@ -38,7 +38,7 @@ define :cli_tools, :extension => '.zip' do
       mode 0755
     end
   else
-    template "#{node['aws_developer_tools']['aws_tools_target']}/aws_credentials" do
+    template "#{node['aws_developer_tools']['aws_tools_target']}/credentials" do
       mode 0444
     end
 
