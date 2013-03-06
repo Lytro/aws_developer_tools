@@ -1,2 +1,1 @@
-export PATH=$PATH:<%= node['aws_developer_tools']['cloudwatch']['install_target'] %>/bin
-export PATH=$PATH:<%= node['aws_developer_tools']['auto_scaling']['install_target'] %>/bin
+export AWS_CREDENTIAL_FILE=<%= node['aws_developer_tools']['aws_tools_target'] %>/credentials
