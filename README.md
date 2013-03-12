@@ -42,11 +42,14 @@ default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws
 See [Setting Attributes (Examples)](http://wiki.opscode.com/pages/viewpage.action?pageId=8257848).
 
 ## Recipes
-* `aws_developer_tools` - sets up all of the below tools
+* `aws_developer_tools` - runs the following recipes: ami, api, auto_scaling, cloudwatch
 * `aws_developer_tools::ami` - [AMI tools](http://aws.amazon.com/developertools/368). Requires Ruby
 * `aws_developer_tools::api` - [API tools](http://aws.amazon.com/developertools/351). Requires Java
 * `aws_developer_tools::auto_scaling` - [Auto Scaling tools](http://aws.amazon.com/developertools/2535). Requires Java
 * `aws_developer_tools::cloudwatch` - [CloudWatch tools](http://aws.amazon.com/developertools/2534). Requires Java
+* `aws_developer_tools::aws_ha_release` - [AWS HA Release](https://github.com/colinbjohnson/aws-missing-tools/tree/master/aws-ha-release).
+Third-party script that replaces old instances with new ones; used when deploying new code to ensure all active instances are
+using the fresh code. Since this is a third-party script, it is not a part of the default recipe.
 
 
 Written by [Anuj Biyani](https://github.com/anujbiyani) for [Lytro](https://github.com/lytro)
