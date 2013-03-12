@@ -34,6 +34,9 @@ default['aws_developer_tools']['aws_tools_target'] = '/usr/local/share/aws_tools
 default['aws_developer_tools']['auto_scaling']['source'] = 'http://ec2-downloads.s3.amazonaws.com/AutoScaling-2011-01-01.zip'
 default['aws_developer_tools']['auto_scaling']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/auto_scaling"
 
+default['aws_developer_tools']['elb']['source'] = 'http://ec2-downloads.s3.amazonaws.com/ElasticLoadBalancing.zip'
+default['aws_developer_tools']['elb']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/elb"
+
 default['aws_developer_tools']['cloudwatch']['source'] = 'http://ec2-downloads.s3.amazonaws.com/CloudWatch-2010-08-01.zip'
 default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/cloudwatch"
 ###############
