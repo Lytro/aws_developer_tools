@@ -51,7 +51,7 @@ See [Setting Attributes (Examples)](http://wiki.opscode.com/pages/viewpage.actio
 * `aws_developer_tools::auto_scaling` - [Auto Scaling tools](http://aws.amazon.com/developertools/2535). Requires Java
 * `aws_developer_tools::cloudwatch` - [CloudWatch tools](http://aws.amazon.com/developertools/2534). Requires Java
 * `aws_developer_tools::elb` - [Elastic Load Balancing tools](). Requires Java
-* `aws_developer_tools::aws_ha_release` - [AWS HA Release](https://github.com/colinbjohnson/aws-missing-tools/tree/master/aws-ha-release).
+* `aws_developer_tools::aws_ha_release` - [AWS HA Release](https://github.com/Lytro/aws-missing-tools/tree/suspend_certain_processes/aws-ha-release).
 Third-party script that replaces old instances with new ones; used when deploying new code to ensure all active instances are
 using the fresh code. Since this is a third-party script, it is not a part of the default recipe.
 
