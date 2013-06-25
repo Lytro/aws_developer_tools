@@ -1,11 +1,12 @@
 default['aws_developer_tools']['install_java?'] = true
 default['aws_developer_tools']['install_ruby?'] = true
+default['aws_developer_tools']['deploy_keys?']  = false
 
 default['aws_developer_tools']['aws_access_key'] = 'Your Access Key'
 default['aws_developer_tools']['aws_secret_key'] = 'Your Secret Key'
 
 ## EC2 Tools ##
-default['aws_developer_tools']['ec2_tools_target'] = '/usr/local/share/ec2_tools'
+default['aws_developer_tools']['ec2_tools_target'] = '/opt/aws/apitools/ec2'
 
 default['aws_developer_tools']['api']['source'] = 'http://s3.amazonaws.com/ec2-downloads/ec2-api-tools.zip'
 default['aws_developer_tools']['api']['install_target'] = default['aws_developer_tools']['ec2_tools_target']
