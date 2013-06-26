@@ -1,5 +1,6 @@
 default['aws_developer_tools']['install_java?'] = true
 default['aws_developer_tools']['install_ruby?'] = true
+default['aws_developer_tools']['deploy_key?']  = false
 
 default['aws_developer_tools']['aws_access_key'] = 'Your Access Key'
 default['aws_developer_tools']['aws_secret_key'] = 'Your Secret Key'
