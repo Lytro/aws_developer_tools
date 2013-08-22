@@ -26,4 +26,7 @@ default['aws_developer_tools']['elb']['install_target'] = "#{default['aws_develo
 
 default['aws_developer_tools']['cloudwatch']['source'] = 'http://ec2-downloads.s3.amazonaws.com/CloudWatch-2010-08-01.zip'
 default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/cloudwatch"
+
+default['aws_developer_tools']['iam']['source'] = 'http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip'
+default['aws_developer_tools']['iam']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/iam"
 ###############
