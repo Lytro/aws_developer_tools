@@ -1,3 +1,4 @@
 .chef/
 cookbooks/
 tmp/
+/metadata.json
