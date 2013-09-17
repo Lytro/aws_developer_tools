@@ -35,6 +35,14 @@ attribute "aws_developer_tools/install_ruby?",
   :choice => [ "true", "false" ],
   :default => "true"
 
+attribute "aws_developer_tools/deploy_key?",
+  :display_name => "AWS Developer Tools install keys",
+  :description => "Whether to automatically install the AWS keys.",
+  :required => "optional",
+  :recipes => [ "aws_developer_tools:api" ],
+  :choice => [ "true", "false" ],
+  :default => "false"
+
 attribute "aws_developer_tools/aws_access_key",
   :display_name => "AWS Developer Tools access key",
   :description => "The AWS Access Key for use with AWS developer tools.",
