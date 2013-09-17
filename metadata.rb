@@ -23,7 +23,7 @@ attribute "aws_developer_tools/install_java?",
   :display_name => "AWS Developer Tools install java",
   :description => "Whether to automatically install Java with Amazon API Tools.",
   :required => "optional",
-  :recipes => [ "aws_developer_tools:api" ],
+  :recipes => [ "aws_developer_tools::api" ],
   :choice => [ "true", "false" ],
   :default => "true"
 
@@ -31,7 +31,7 @@ attribute "aws_developer_tools/install_ruby?",
   :display_name => "AWS Developer Tools install ruby",
   :description => "Whether to automatically install Java with Amazon AMI Tools.",
   :required => "optional",
-  :recipes => [ "aws_developer_tools:ami" ],
+  :recipes => [ "aws_developer_tools::ami" ],
   :choice => [ "true", "false" ],
   :default => "true"
 
@@ -39,7 +39,7 @@ attribute "aws_developer_tools/deploy_key?",
   :display_name => "AWS Developer Tools install keys",
   :description => "Whether to automatically install the AWS keys.",
   :required => "optional",
-  :recipes => [ "aws_developer_tools:api" ],
+  :recipes => [ "aws_developer_tools::api" ],
   :choice => [ "true", "false" ],
   :default => "false"
 
