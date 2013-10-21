@@ -3,7 +3,7 @@ cli_tools 'api' do
 end
 
 include_recipe 'java' do
-  only_if { node['aws_developer_tools']['install_java?'] }
+  only_if { node['aws_developer_tools']['install_java?'] && node['aws_developer_tools']['install_java?'] != 'false' }
 end
 
 template '/etc/profile.d/aws_keys.sh' do
