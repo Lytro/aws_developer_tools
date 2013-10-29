@@ -2,9 +2,7 @@ cli_tools 'api' do
   source node['aws_developer_tools']['api']['source']
 end
 
-include_recipe 'java' do
-  only_if { node['aws_developer_tools']['install_java?'] }
-end
+include_recipe 'java' unless (!node['aws_developer_tools']['install_java?'] || node['aws_developer_tools']['install_java?'] == 'false')
 
 template '/etc/profile.d/aws_keys.sh' do
   source 'aws_keys.sh.erb'
