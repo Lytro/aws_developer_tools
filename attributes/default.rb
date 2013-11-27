@@ -30,3 +30,6 @@ default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws
 default['aws_developer_tools']['iam']['source'] = 'http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip'
 default['aws_developer_tools']['iam']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/iam"
 ###############
+
+default['aws_developer_tools']['ec2_metadata']['checksum'] = 'e320585b2455a879f201c6a0cc381a5b645ce1bd851c7946e12dc6513c07769d'
+default['aws_developer_tools']['ec2_metadata']['install_target'] = '/usr/local/bin'
