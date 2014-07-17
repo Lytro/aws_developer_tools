@@ -17,6 +17,8 @@ default['aws_developer_tools']['ami']['install_target'] = default['aws_developer
 
 ## AWS Tools ##
 default['aws_developer_tools']['aws_tools_target'] = '/usr/local/share/aws_tools'
+default['aws_developer_tools']['aws_tools_credentials']['location'] = "#{node['aws_developer_tools']['aws_tools_target']}/credentials"
+default['aws_developer_tools']['aws_tools_credentials']['permission'] = 0400
 
 default['aws_developer_tools']['auto_scaling']['source'] = 'http://ec2-downloads.s3.amazonaws.com/AutoScaling-2011-01-01.zip'
 default['aws_developer_tools']['auto_scaling']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/auto_scaling"
