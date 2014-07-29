@@ -31,4 +31,7 @@ default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws
 
 default['aws_developer_tools']['iam']['source'] = 'http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip'
 default['aws_developer_tools']['iam']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/iam"
+
+default['aws_developer_tools']['rds']['source'] = 'http://s3.amazonaws.com/rds-downloads/RDSCli.zip'
+default['aws_developer_tools']['rds']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/rds"
 ###############

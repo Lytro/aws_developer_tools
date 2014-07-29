@@ -15,6 +15,8 @@ recipe "aws_developer_tools::api", "Installs Amazon API Tools (requires Java)."
 recipe "aws_developer_tools::auto_scaling", "Installs Amazon Auto Scaling tools (requires Java)."
 recipe "aws_developer_tools::cloudwatch", "Installs CloudWatch tools (requires Java)."
 recipe "aws_developer_tools::elb", "Installs Elastic Load Balancing tools (requires Java)."
+recipe "aws_developer_tools::iam", "Installs Identity and Access Management tools (requires Java)."
+recipe "aws_developer_tools::rds", "Installs Relational Database Service tools (requires Java)."
 recipe "aws_developer_tools::aws_ha_release",  "Installs AWS HA Release. Third-party script that replaces old instances with new ones; used when deploying new code to ensure all active instances are using the fresh code. Since this is a third-party script, it is not a part of the default recipe."
 
 replaces 'chef_ec2_cli_tools'
