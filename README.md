@@ -14,6 +14,7 @@ API and AutoScaling Tools require java; by default, OpenJDK is installed. See th
 ```ruby
 default['aws_developer_tools']['install_java?'] = true  # set to `false` if you'd rather install java yourself
 default['aws_developer_tools']['install_ruby?'] = true  # set to `false` if you'd rather install ruby yourself
+default['aws_developer_tools']['deploy_key?']  = false  # set to `true` if you want the keys exported for all users 
 
 default['aws_developer_tools']['aws_access_key'] = 'Your Access Key'  # you must set this if installing the API tools.
 default['aws_developer_tools']['aws_secret_key'] = 'Your Secret Key'  # you must set this if installing the API tools.
@@ -30,6 +31,8 @@ default['aws_developer_tools']['ami']['install_target'] = node['aws_developer_to
 
 ## AWS Tools ##
 default['aws_developer_tools']['aws_tools_target'] = '/usr/local/share/aws_tools'
+default['aws_developer_tools']['aws_tools_credentials']['location'] = "#{node['aws_developer_tools']['aws_tools_target']}/credentials"
+default['aws_developer_tools']['aws_tools_credentials']['permission'] = 0444
 
 default['aws_developer_tools']['auto_scaling']['source'] = 'http://ec2-downloads.s3.amazonaws.com/AutoScaling-2011-01-01.zip'
 default['aws_developer_tools']['auto_scaling']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/auto_scaling"
@@ -39,6 +42,12 @@ default['aws_developer_tools']['elb']['install_target'] = "#{default['aws_develo
 
 default['aws_developer_tools']['cloudwatch']['source'] = 'http://ec2-downloads.s3.amazonaws.com/CloudWatch-2010-08-01.zip'
 default['aws_developer_tools']['cloudwatch']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/cloudwatch"
+
+default['aws_developer_tools']['iam']['source'] = 'http://awsiammedia.s3.amazonaws.com/public/tools/cli/latest/IAMCli.zip'
+default['aws_developer_tools']['iam']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/iam"
+
+default['aws_developer_tools']['rds']['source'] = 'http://s3.amazonaws.com/rds-downloads/RDSCli.zip'
+default['aws_developer_tools']['rds']['install_target'] = "#{default['aws_developer_tools']['aws_tools_target']}/rds"
 ###############
 ```
 
@@ -50,7 +59,9 @@ See [Setting Attributes (Examples)](http://wiki.opscode.com/pages/viewpage.actio
 * `aws_developer_tools::api` - [API tools](http://aws.amazon.com/developertools/351). Requires Java
 * `aws_developer_tools::auto_scaling` - [Auto Scaling tools](http://aws.amazon.com/developertools/2535). Requires Java
 * `aws_developer_tools::cloudwatch` - [CloudWatch tools](http://aws.amazon.com/developertools/2534). Requires Java
-* `aws_developer_tools::elb` - [Elastic Load Balancing tools](). Requires Java
+* `aws_developer_tools::elb` - [Elastic Load Balancing tools](http://aws.amazon.com/developertools/Amazon-EC2/2536). Requires Java
+* `aws_developer_tools::iam` - [IAM tools](http://aws.amazon.com/developertools/AWS-Identity-and-Access-Management/4143). Requires Java
+* `aws_developer_tools::rds` - [RDS tools](http://aws.amazon.com/developertools/Amazon-RDS/2928). Requires Java
 * `aws_developer_tools::aws_ha_release` - [AWS HA Release](https://github.com/Lytro/aws-missing-tools/tree/suspend_certain_processes/aws-ha-release).
 Third-party script that replaces old instances with new ones; used when deploying new code to ensure all active instances are
 using the fresh code. Since this is a third-party script, it is not a part of the default recipe.
