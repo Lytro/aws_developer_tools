@@ -5,11 +5,19 @@ define :cli_tools, :extension => '.zip' do
 
   remote_file "/tmp/#{params[:name] + params[:extension]}" do
     source params[:source]
+    use_conditional_get !node['aws_developer_tools']['force_download?']
+    use_etag true
+    use_last_modified false
   end
   
-  execute 'cleanup old installs and extract the aws tool' do
+  execute 'cleanup old installs' do
     cwd '/tmp'
-    command "rm -rf #{params[:name]} && mkdir #{params[:name]} && mv #{params[:name] + params[:extension]} #{params[:name]}/ && cd #{params[:name]} && unzip -o ./#{params[:name] + params[:extension]}"
+    command "rm -rf #{params[:name]} && mkdir #{params[:name]}"
+  end
+  
+  execute 'extract the aws tool' do
+    cwd "/tmp/#{params[:name]}"
+    command "unzip -o ../#{params[:name] + params[:extension]}"
   end
 
   ruby_block 'copy the tools to the target directory' do

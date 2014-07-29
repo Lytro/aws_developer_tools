@@ -15,6 +15,8 @@ API and AutoScaling Tools require java; by default, OpenJDK is installed. See th
 default['aws_developer_tools']['install_java?'] = true  # set to `false` if you'd rather install java yourself
 default['aws_developer_tools']['install_ruby?'] = true  # set to `false` if you'd rather install ruby yourself
 
+default['aws_developer_tools']['force_download?'] = false # set to `true` to disable hash based caching
+
 default['aws_developer_tools']['aws_access_key'] = 'Your Access Key'  # you must set this if installing the API tools.
 default['aws_developer_tools']['aws_secret_key'] = 'Your Secret Key'  # you must set this if installing the API tools.
 
