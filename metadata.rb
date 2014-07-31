@@ -45,6 +45,13 @@ attribute "aws_developer_tools/deploy_key?",
   :choice => [ "true", "false" ],
   :default => "false"
 
+attribute "aws_developer_tools/force_download?",
+  :display_name => "Force download",
+  :description => "Whether to re-download archives even if file with same checksum exists",
+  :required => "optional",
+  :choice => [ "true", "false" ],
+  :default => "false"
+
 attribute "aws_developer_tools/aws_access_key",
   :display_name => "AWS Developer Tools access key",
   :description => "The AWS Access Key for use with AWS developer tools.",
